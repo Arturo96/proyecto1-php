@@ -1,0 +1,114 @@
+/* Fuentes */
+@font-face {
+  font-family: "Fajala";
+  src: url("../fonts/fuente.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --menu-height: 3rem;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+}
+
+body {
+  background: url("../img/cubes.png");
+  font-family: sans-serif, Helvetica, Arial;
+}
+
+.clearfix {
+  clear: both;
+  display: none;
+}
+
+header {
+  width: 85%;
+  margin: 0 auto;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+/* Logotipo */
+.logo {
+  width: 540px;
+  height: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Fajala", Helvetica;
+  font-size: 40px;
+  letter-spacing: 2px;
+  color: #2979cd;
+  text-shadow: 0 0 0 #000, 1px 1px 0 #000, 2px 2px 0 #000;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  line-height: 5rem;
+  margin-left: 1rem;
+}
+
+h1:hover {
+  text-shadow: 0 0 0 #000, -1px -1px 0 #000, -2px -2px 0 #000;
+}
+
+/* MENU */
+.menu-nav {
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f9f9f9), to(#e9e9e9));
+  background: linear-gradient(#f9f9f9 0, #e9e9e9 100%);
+  height: var(--menu-height);
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 2px 2px #eee;
+          box-shadow: 0 2px 2px #eee;
+  overflow: hidden;
+}
+
+.menu-nav ul {
+  height: 100%;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+}
+
+.menu-item {
+  border-right: 1px solid #d6d6d6;
+}
+
+.menu-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-size: 15px;
+  color: #838282;
+}
+
+.menu-link:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), to(#dad9d4));
+  background: linear-gradient(#f2f2f2 0, #dad9d4);
+}
+/*# sourceMappingURL=style.css.map */
