@@ -221,6 +221,11 @@ input[type="button"] {
   cursor: pointer;
 }
 
+.alerta-error {
+  color: #ff0000;
+  font-weight: bold;
+}
+
 footer {
   margin: 1rem auto;
   margin-bottom: 0;

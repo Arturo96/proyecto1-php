@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 if (isset($_POST['registrar'])) {
 
     // Recoger los valores del formulario de registro
@@ -63,4 +66,12 @@ $guardar_usuario = false;
 if (count($errores) == 0) {
     // Insertar en la BD
     $guardar_usuario = true;
-} else { }
+
+    // Cifrar la contraseña
+    $secure_password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
+
+} else { 
+    $_SESSION['errores'] = $errores;
+    header('Location: ../index.php');
+
+}
