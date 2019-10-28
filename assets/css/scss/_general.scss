@@ -1,0 +1,26 @@
+/* Fuentes */
+
+@font-face {
+    font-family: "Fajala";
+    src: url("../fonts/fuente.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+  }
+  
+  body {
+    background: url("../img/cubes.png");
+    font-family: sans-serif, Helvetica, Arial;
+  }
+  
+  .clearfix {
+    clear: both;
+    display: none;
+  }

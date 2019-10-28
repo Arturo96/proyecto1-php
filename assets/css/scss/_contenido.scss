@@ -1,0 +1,71 @@
+/* CONTENIDO */
+
+.container {
+    width: 85%;
+  //   min-height: 900px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Barra lateral */
+  
+  .principal {
+      width: 70%;
+      background: #fff;
+      border-radius: 5px;
+      padding: 2rem;
+      box-shadow: 0 0 5px #ccc;
+      margin-left: 20px;
+
+      h2 {
+          font-family: 'Fajala';
+          font-size: 2em;
+          letter-spacing: 1px;
+          text-shadow: 1px 1px 2px #ccc;
+          color: #444;
+          text-align: center;
+      }
+
+  }
+  
+  .sidebar {
+      width: 25%;
+  }
+
+  .entrada {
+      margin-top: 2rem;
+
+  }
+  
+  .titulo-entrada {
+      font-size: 1.5em;
+      font-family: 'Fajala';
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px #ccc;
+      color: #2979CD;
+      margin-bottom: 1em;
+  }
+
+.desc-entrada {
+    color: #333;
+}
+
+.ver-entradas {
+
+    display: flex;
+
+    a {
+        border: 1px solid #156785;
+        border-radius: 4px;
+        background: #007ee5;
+        padding: 0.8em;
+        color: #fff;
+        margin: 2rem auto;
+    
+    }
+}
+
+  

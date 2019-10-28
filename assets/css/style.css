@@ -1,13 +1,13 @@
+:root {
+  --menu-height: 3rem;
+}
+
 /* Fuentes */
 @font-face {
   font-family: "Fajala";
   src: url("../fonts/fuente.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-
-:root {
-  --menu-height: 3rem;
 }
 
 *,
@@ -110,5 +110,75 @@ h1:hover {
 .menu-link:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), to(#dad9d4));
   background: linear-gradient(#f2f2f2 0, #dad9d4);
+}
+
+/* CONTENIDO */
+.container {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 30px;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* Barra lateral */
+.principal {
+  width: 70%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2rem;
+  -webkit-box-shadow: 0 0 5px #ccc;
+          box-shadow: 0 0 5px #ccc;
+  margin-left: 20px;
+}
+
+.principal h2 {
+  font-family: 'Fajala';
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #ccc;
+  color: #444;
+  text-align: center;
+}
+
+.sidebar {
+  width: 25%;
+}
+
+.entrada {
+  margin-top: 2rem;
+}
+
+.titulo-entrada {
+  font-size: 1.5em;
+  font-family: 'Fajala';
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #ccc;
+  color: #2979CD;
+  margin-bottom: 1em;
+}
+
+.desc-entrada {
+  color: #333;
+}
+
+.ver-entradas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ver-entradas a {
+  border: 1px solid #156785;
+  border-radius: 4px;
+  background: #007ee5;
+  padding: 0.8em;
+  color: #fff;
+  margin: 2rem auto;
 }
 /*# sourceMappingURL=style.css.map */
