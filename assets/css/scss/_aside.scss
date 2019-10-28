@@ -1,0 +1,41 @@
+/* Barra lateral */
+
+.block-aside {
+
+  width: 90%;
+  margin: 4rem auto;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 1px rgba(#000, 0.3), 0 3px 7px rgba(#000, 0.3), 0 0 1px rgba(#000, 0.3),
+    0 -3px 2px rgba(#000, 0.3) inset;
+
+  form {
+    margin-top: 1rem;
+  }
+}
+
+.login {
+    margin-top: 0;
+}
+
+
+label,
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 5px;
+}
+
+input[type="submit"],
+input[type="button"] {  
+  margin-top: 1rem;
+  border: 1px solid #156785;
+  border-radius: 4px;
+  background: #007ee5;
+  padding: 0.8em;
+  color: #fff;
+  cursor: pointer;
+}

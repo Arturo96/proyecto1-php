@@ -147,7 +147,7 @@ h1:hover {
 }
 
 .sidebar {
-  width: 25%;
+  width: 27%;
 }
 
 .entrada {
@@ -180,5 +180,54 @@ h1:hover {
   padding: 0.8em;
   color: #fff;
   margin: 2rem auto;
+}
+
+/* Barra lateral */
+.block-aside {
+  width: 90%;
+  margin: 4rem auto;
+  background: #fff;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 3px 7px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.3), 0 -3px 2px rgba(0, 0, 0, 0.3) inset;
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 3px 7px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.3), 0 -3px 2px rgba(0, 0, 0, 0.3) inset;
+}
+
+.block-aside form {
+  margin-top: 1rem;
+}
+
+.login {
+  margin-top: 0;
+}
+
+label,
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 5px;
+}
+
+input[type="submit"],
+input[type="button"] {
+  margin-top: 1rem;
+  border: 1px solid #156785;
+  border-radius: 4px;
+  background: #007ee5;
+  padding: 0.8em;
+  color: #fff;
+  cursor: pointer;
+}
+
+footer {
+  margin: 1rem auto;
+  margin-bottom: 0;
+  padding: 1em;
+  border: 1px solid #c9c9c9;
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f9f9f9), to(#e9e9e9));
+  background: linear-gradient(#f9f9f9 0, #e9e9e9 100%);
 }
 /*# sourceMappingURL=style.css.map */
