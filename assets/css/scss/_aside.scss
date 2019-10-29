@@ -40,7 +40,21 @@ input[type="button"] {
   cursor: pointer;
 }
 
+.alerta {
+  font-size: 13m;
+  padding: 0.5em;
+  color: #fff;
+  box-shadow: 0 1px 3px #ccc;
+  border-radius: 2px;
+  margin-top: 1rem; 
+}
+
+.alerta-exito {
+  background-color: rgb(0, 165, 0); 
+  
+}
+
 .alerta-error {
-  color: #ff0000;
+  background-color: #f00;  
   font-weight: bold;
 }

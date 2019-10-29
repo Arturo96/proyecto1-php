@@ -2,8 +2,18 @@
 
 <!-- BARRA LATERAL -->
 <aside class="sidebar">
+    <?php if(isset($_SESSION['usuario'])): ?>
+        <div id="usuario-logueado" class="block-aside">
+            <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos']; ?></h3>
+        </div>
+    <?php endif; ?>
     <div class="login block-aside">
         <h3>Identificate</h3>
+        <?php if(isset($_SESSION['error_login'])) : ?>
+            <div class="alerta alerta-error">
+                <?= $_SESSION['error_login'] ?>
+            </div>
+        <?php endif; ?>
         <form action="login.php" method="POST">
             <div>
                 <label>Email:
@@ -15,13 +25,16 @@
                     <input type="password" id="passwordLogin" name="passwordLogin">
                 </label>
             </div>
-            <input type="submit" value="Ingresar">
+            <input type="submit" name='ingresar' value="Ingresar">
         </form>
     </div>
 
     <div class="register block-aside">
 
         <h3>Regístrate</h3>
+        <!-- <div class="alerta alerta-exito">
+                Alerta de exito
+        </div> -->
 
         <!-- Mostrar errores -->
         <?php if (isset($_SESSION['completed'])) :   ?>

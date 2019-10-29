@@ -1,15 +1,20 @@
 <?php
 
-if (isset($_POST['registrar'])) {
+if (isset($_POST)) {
+
+    // Conectarse a la BD
+    require_once 'conexion.php';
 
     // Iniciar sesión
-    session_start();
+    if(!isset($_SESSION)) session_start();
+
+    
 
     // Recoger los valores del formulario de registro
-    $nombre    = isset($_POST['nombre']) ? $_POST['nombre'] : false;
-    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
-    $email    = isset($_POST['emailRegister']) ? $_POST['emailRegister'] : false;
-    $password  = isset($_POST['passwordRegister']) ? $_POST['passwordRegister'] : false;
+    $nombre    = isset($_POST['nombre']) ? mysqli_real_escape_string($connection, $_POST['nombre']) : false;
+    $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($connection, $_POST['apellidos']) : false;
+    $email    = isset($_POST['emailRegister']) ? mysqli_real_escape_string($connection, trim($_POST['emailRegister'])) : false;
+    $password  = isset($_POST['passwordRegister']) ? mysqli_real_escape_string($connection, $_POST['passwordRegister']) : false;
 }
 
 // Array de errores
@@ -67,7 +72,7 @@ $guardar_usuario = false;
 if (count($errores) == 0) {
     // Insertar en la BD
 
-    require_once 'conexion.php';
+    
 
     $guardar_usuario = true;
 
