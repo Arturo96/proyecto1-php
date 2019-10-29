@@ -20,32 +20,44 @@
     </div>
 
     <div class="register block-aside">
-        
+
         <h3>Regístrate</h3>
+
+        <!-- Mostrar errores -->
+        <?php if (isset($_SESSION['completed'])) :   ?>
+            <div class="alerta alerta-exito">
+                <?= $_SESSION['completed'] ?>
+            </div>
+            <?php elseif(isset($_SESSION['errores']['db'])) : ?>
+            <div class="alerta alerta-error">
+                <?= $_SESSION['errores']['db'] ?>
+            </div>
+        <?php endif; ?>
+
         <form action="./includes/registro.php" method="POST">
             <div>
-                <label>Nombre: 
+                <label>Nombre:
                     <input type="text" id="nombre" name="nombre">
                 </label>
-                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre' ) : ''; ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : ''; ?>
             </div>
             <div>
                 <label>Apellidos:
                     <input type="text" id="apellidos" name="apellidos">
                 </label>
-                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellidos' ) : ''; ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellidos') : ''; ?>
             </div>
             <div>
                 <label>Correo:
                     <input type="email" id="emailRegister" name="emailRegister">
                 </label>
-                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email' ) : ''; ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email') : ''; ?>
             </div>
             <div>
                 <label>Contraseña:
                     <input type="password" id="passwordRegister" name="passwordRegister">
                 </label>
-                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password' ) : ''; ?>
+                <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password') : ''; ?>
             </div>
 
             <input type="submit" name="registrar" value="Registrarse">

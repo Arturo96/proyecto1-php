@@ -1,8 +1,9 @@
 <?php
 
-session_start();
-
 if (isset($_POST['registrar'])) {
+
+    // Iniciar sesión
+    session_start();
 
     // Recoger los valores del formulario de registro
     $nombre    = isset($_POST['nombre']) ? $_POST['nombre'] : false;
@@ -65,13 +66,31 @@ $guardar_usuario = false;
 
 if (count($errores) == 0) {
     // Insertar en la BD
+
+    require_once 'conexion.php';
+
     $guardar_usuario = true;
 
     // Cifrar la contraseña
     $secure_password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
 
-} else { 
-    $_SESSION['errores'] = $errores;
-    header('Location: ../index.php');
+    // Insertar usuario en la BD
 
+    $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$apellidos', '$email', '$secure_password', CURDATE());";
+
+    try {
+        $insert = mysqli_query($connection, $sql);
+    } catch (Exception $e) {
+        echo "<h3 class='alerta-error'>Error al insertar en la base de datos: " . $e . "</h3>";
+    }
+
+    if ($insert) {
+        $_SESSION['completed'] = "Datos insertados correctamente";
+    } else {
+        $_SESSION['errores']['db'] = 'Error al insertar en la base de datos: '.mysqli_error($connection);
+    }
+} else {
+    $_SESSION['errores'] = $errores;
 }
+
+header('Location: ../index.php');
