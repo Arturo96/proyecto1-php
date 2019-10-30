@@ -29,8 +29,16 @@ input[type="email"] {
   padding: 5px;
 }
 
+.user-logged {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0;
+}
+
 input[type="submit"],
-input[type="button"] {  
+input[type="button"],
+[class$="button"] {  
   margin-top: 1rem;
   border: 1px solid #156785;
   border-radius: 4px;
@@ -38,6 +46,21 @@ input[type="button"] {
   padding: 0.8em;
   color: #fff;
   cursor: pointer;
+}
+
+[class$="button"] {  
+  width: 75%;
+  text-align: center;
+}
+
+.entry-button {
+  background: #21b921;
+  border-color: green;
+}
+
+.data-button {
+  background: orange;
+  border-color: #bd7d08;
 }
 
 .alerta {

@@ -2,18 +2,30 @@
 
 <!-- BARRA LATERAL -->
 <aside class="sidebar">
+
     <?php if(isset($_SESSION['usuario'])): ?>
-        <div id="usuario-logueado" class="block-aside">
+        <div class="block-aside user-logged">
             <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos']; ?></h3>
+
+            <a href="" class="entry-button">Crear entradas</a>
+            <a href="" class="data-button">Mis datos</a>
+            <a href="cerrar.php" class="logout-button">Cerrar sesión</a>
+
         </div>
+
+        
+
     <?php endif; ?>
+
     <div class="login block-aside">
         <h3>Identificate</h3>
+
         <?php if(isset($_SESSION['error_login'])) : ?>
             <div class="alerta alerta-error">
                 <?= $_SESSION['error_login'] ?>
             </div>
         <?php endif; ?>
+
         <form action="login.php" method="POST">
             <div>
                 <label>Email:

@@ -5,6 +5,11 @@ if(isset($_POST)) {
     // Conectarse a la BD
     require_once './includes/conexion.php';
 
+    // Borrar error anterior
+    if(isset($_SESSION['error_login'])) {
+        unset($_SESSION['error_login']);
+    }
+
     // Recibir datos del formulario
     $email    = trim($_POST['emailLogin']);
     $password = $_POST['passwordLogin']; 
@@ -23,9 +28,7 @@ if(isset($_POST)) {
             // Establecer la sesión
             $_SESSION['usuario'] = $usuario;
 
-            if(isset($_SESSION['error_login'])) {
-                unset($_SESSION['error_login']);
-            }
+            
         } else {
             // Si algo falla enviar una sesión con el fallo
             $_SESSION['error_login'] = 'El usuario o la contraseña no son correctos.';
