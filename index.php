@@ -17,6 +17,7 @@
                     <article class="entrada">
                         <a href="">
                             <h3 class="titulo-entrada"><?= $lastEntry['titulo'] ?></h3>
+                            <span class="date"><?= $lastEntry['categoria'].' | '.$lastEntry['fecha'] ?></span>
                             <p class="desc-entrada">
                                 <?php 
                                     echo substr($lastEntry['descripcion'], 0, 300);

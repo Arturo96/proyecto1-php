@@ -35,7 +35,7 @@ function getCategories($connection) {
 }
 
 function getLastEntries($connection) {
-    $sql = "SELECT e.*, c.* FROM entradas e
+    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
                 JOIN categorias c ON e.categoria_id = c.id ORDER BY e.fecha DESC LIMIT 5;";
 
     $lastEntries = mysqli_query($connection, $sql);
