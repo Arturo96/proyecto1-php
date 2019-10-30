@@ -1,4 +1,3 @@
-<?php require_once './includes/helpers.php'; ?>
 
 <!-- BARRA LATERAL -->
 <aside class="sidebar">
@@ -7,7 +6,10 @@
         <div class="block-aside user-logged">
             <h3>Bienvenido, <?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos']; ?></h3>
 
+            <!-- Botones -->
+
             <a href="" class="entry-button">Crear entradas</a>
+            <a href="" class="category-button">Crear categoría</a>
             <a href="" class="data-button">Mis datos</a>
             <a href="cerrar.php" class="logout-button">Cerrar sesión</a>
 
