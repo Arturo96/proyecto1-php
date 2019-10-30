@@ -1,11 +1,10 @@
 <?php require_once './includes/header.php'; ?>
 
-<main class="container">
+
 
     <!-- CAJA PRINCIPAL -->
 
-    <section class="principal">
-
+    
         <h2>Últimas entradas</h2>
 
         <?php 
@@ -35,12 +34,9 @@
         </div>
 
 
-
-    </section>
-
     <?php require_once './includes/aside.php'; ?>
 
-</main>
+
 
 <?php require_once './includes/footer.php'; ?>
 

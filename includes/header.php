@@ -45,3 +45,7 @@
 
 
     </header>
+
+    <main class="container">
+
+        <section class="principal">
