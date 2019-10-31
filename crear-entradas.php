@@ -15,22 +15,21 @@ require_once './includes/header.php';
         <label>Título de la entrada:
             <input type="text" name='title-entry'>
         </label>
+
+        <!-- Mensaje de error -->
+
+        <?php 
+            echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'title_entry' ) : '';
+        ?>
         
         <label>Descripción:
             <textarea name="description-entry" rows="10"></textarea>
         </label>
+
+        <?php 
+            echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'description_entry' ) : '';
+        ?>
         
-        <label>Usuario:
-            <select name="user-entry" class="user-entry">
-                <?php
-                $users = getUsers($connection);
-                while ($user = mysqli_fetch_assoc($users)) : ?>
-
-                    <option value="<?= $user['id'] ?>"><?= $user['apellidos'].' '.$user['nombre'] ?></option>
-                <?php endwhile; ?>
-            </select>
-        </label>
-
         <label>Categoría:
             <select name="category-entry">
                 <?php
@@ -43,6 +42,10 @@ require_once './includes/header.php';
                 endif; ?>
             </select>
         </label>
+
+        <?php 
+            echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'category_entry' ) : '';
+        ?>
 
         <input type="submit" name="submit-entry" value="Guardar entrada">
 
