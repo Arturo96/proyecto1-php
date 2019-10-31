@@ -49,5 +49,19 @@ function getLastEntries($connection) {
     
     return $result;
 
-
 }
+
+function getUsers($connection) {
+    $sql = 'SELECT * FROM usuarios ORDER BY apellidos';
+
+    $users = mysqli_query($connection, $sql);
+
+    $result = [];
+
+    if($users && mysqli_num_rows($users) >= 1) {
+        $result = $users;
+    }
+
+    return $result;
+}
+

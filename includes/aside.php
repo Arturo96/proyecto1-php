@@ -10,7 +10,7 @@
 
             <!-- Botones -->
 
-            <a href="" class="entry-button">Crear entradas</a>
+            <a href="crear-entradas.php" class="entry-button">Crear entradas</a>
             <a href="crear-categoria.php" class="category-button">Crear categoría</a>
             <a href="" class="data-button">Mis datos</a>
             <a href="cerrar.php" class="logout-button">Cerrar sesión</a>

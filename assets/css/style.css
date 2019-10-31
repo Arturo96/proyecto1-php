@@ -194,13 +194,31 @@ h1:hover {
   font-size: 1em;
 }
 
-.add-category {
+[class^="add-"] {
   margin-top: 1rem;
 }
 
-.category-message {
-  margin-top: 2rem;
+[class$="message"] {
+  margin-top: 1.5rem;
+  line-height: 1.25rem;
   font-weight: bold;
+}
+
+.add-entry {
+  margin-top: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+select {
+  margin-left: 1rem;
+  padding: 0.3em;
+}
+
+.user-entry {
+  margin-left: 1.9rem;
 }
 
 /* Barra lateral */
@@ -224,7 +242,8 @@ h1:hover {
 label,
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+textarea {
   display: block;
   width: 100%;
   margin-top: 0.5rem;

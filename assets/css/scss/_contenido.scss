@@ -2,12 +2,12 @@
 
 .container {
     width: 85%;
-  //   min-height: 900px;
     margin: 0 auto;
     margin-top: 30px;
     background: transparent;
     display: flex;
     justify-content: space-between;
+
   }
   
   
@@ -75,13 +75,34 @@
     font-size: 1em;
 }
 
+// Titulos y mensajes del contenido ppal
 
-.add-category {
+[class^="add-"] {
     margin-top: 1rem;
 }
 
-.category-message {
-    margin-top: 2rem;
+[class$="message"] {
+    margin-top: 1.5rem;
+    line-height: 1.25rem;
     font-weight: bold;
 }
+
+.add-entry {
+    margin-top: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+select {
+    margin-left: 1rem;
+    padding: 0.3em;
+}
+
+.user-entry {
+    margin-left: 1.9rem;
+}
+
+
   
