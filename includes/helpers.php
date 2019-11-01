@@ -19,6 +19,7 @@ function borrarErrores() {
     unset($_SESSION['completed']);
     unset($_SESSION['error_login']);
 
+
 }
 
 function getCategories($connection) {
