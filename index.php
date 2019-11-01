@@ -7,7 +7,7 @@
 
         <?php 
 
-            $lastEntries = getLastEntries($connection);
+            $lastEntries = getEntries($connection, 'LIMIT 5');
             if(!empty($lastEntries)):
                 while($lastEntry = mysqli_fetch_assoc($lastEntries)): ?>
 
@@ -28,7 +28,7 @@
             endif; ?>
             
         <div class="ver-entradas">
-            <a href="">Ver todas las entradas</a>
+            <a href="entradas.php">Ver todas las entradas</a>
         </div>
 
 

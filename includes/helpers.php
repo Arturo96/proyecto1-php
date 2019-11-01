@@ -36,10 +36,26 @@ function getCategories($connection) {
     return $result;
 }
 
-function getLastEntries($connection) {
-    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
-                JOIN categorias c ON e.categoria_id = c.id ORDER BY e.fecha DESC LIMIT 5;";
+function getCategoryById($connection, $id) {
+    $sql = "SELECT * FROM categorias WHERE id = $id;";
 
+    $categoria = mysqli_query($connection, $sql);
+
+    $result = [];
+
+    if($categoria && mysqli_num_rows($categoria) == 1 ) {
+        $result = mysqli_fetch_assoc($categoria);
+    }
+
+    return $result;
+}
+
+
+
+function getEntries($connection, $limit = null) {
+    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
+                JOIN categorias c ON e.categoria_id = c.id ORDER BY e.fecha DESC ".$limit.";";
+                
     $lastEntries = mysqli_query($connection, $sql);
 
     $result = [];
@@ -51,6 +67,23 @@ function getLastEntries($connection) {
     return $result;
 
 }
+
+function getEntriesByCategory($connection, $limit = null) {
+    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
+                JOIN categorias c ON e.categoria_id = c.id ORDER BY e.fecha DESC ".$limit.";";
+                
+    $lastEntries = mysqli_query($connection, $sql);
+
+    $result = [];
+
+    if($lastEntries && mysqli_num_rows($lastEntries) >= 1) {
+        $result = $lastEntries;
+    }
+    
+    return $result;
+
+}
+
 
 function getUsers($connection) {
     $sql = 'SELECT * FROM usuarios ORDER BY apellidos';

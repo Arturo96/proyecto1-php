@@ -6,6 +6,14 @@ require_once './includes/header.php';
 <!-- Contenido de MIS DATOS -->
 
 <h2 class="data-title">Mis datos</h2>
+<?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'general') : ''; 
+    if(isset($_SESSION['completed'])): ?>
+    <div class="alerta alerta-exito">
+        <?= $_SESSION['completed'] ?>
+    </div>
+<?php
+    endif;?>
+
 
 <form action="actualizar-usuario.php" method="post">
 

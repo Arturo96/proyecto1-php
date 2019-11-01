@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 require_once './includes/redireccion.php';
 
-if(isset($_POST)) {
+if (isset($_POST)) {
 
     // Conectarse a la BD
 
@@ -14,7 +14,7 @@ if(isset($_POST)) {
 
     // Recibir los campos del formulario de actualización de usuario
 
-    $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($connection, $_POST['nombre']) : ''; 
+    $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($connection, $_POST['nombre']) : '';
     $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($connection, $_POST['apellidos']) : '';
     $email = isset($_POST['email']) ? mysqli_real_escape_string($connection, $_POST['email']) : '';
 
@@ -24,25 +24,35 @@ if(isset($_POST)) {
 
     // Validar los campos
 
-        // Validar nombre
+    // Validar nombre
 
-        if(empty($nombre) || is_numeric($nombre) || preg_match('/[0-9$"!#%&()=?¡]/', $nombre)) {
-            $errores['nombre'] = 'El nombre ingresado no es válido.';
-        }
+    if (empty($nombre) || is_numeric($nombre) || preg_match('/[0-9$"!#%&()=?¡]/', $nombre)) {
+        $errores['nombre'] = 'El nombre ingresado no es válido.';
+    }
 
-        // Validar apellidos
+    // Validar apellidos
 
-        if(empty($apellidos) || is_numeric($apellidos) || preg_match('/[0-9]/', $apellidos)) {
-            $errores['apellidos'] = 'Los apellidos ingresados no son válidos.';
-        }
+    if (empty($apellidos) || is_numeric($apellidos) || preg_match('/[0-9]/', $apellidos)) {
+        $errores['apellidos'] = 'Los apellidos ingresados no son válidos.';
+    }
 
-        // Validar correo
+    // Validar correo
 
-        if(empty($email) || is_numeric($email)) {
-            $errores['email'] = 'El correo ingresado no es válido.';
-        }
+    if (empty($email) || is_numeric($email)) {
+        $errores['email'] = 'El correo ingresado no es válido.';
+    }
 
-    if(count($errores) == 0) {
+    // Validar si el correo ya fue utilizado en otro usuario
+
+    $sql = "SELECT email FROM usuarios WHERE email = '$email'";
+
+    $isset_email = mysqli_query($connection, $sql);
+
+    if(mysqli_num_rows($isset_email) >= 0 && $email != $_SESSION['usuario']['email']) {
+        $errores['email'] = 'El correo ingresado ya fue registrado por otro usuario.';
+    }
+
+    if (count($errores) == 0) {
 
         $sql = "UPDATE usuarios set
                     nombre    = '$nombre',
@@ -52,25 +62,20 @@ if(isset($_POST)) {
 
         $result = mysqli_query($connection, $sql);
 
-        if(!empty(mysqli_error($connection))) {
-            echo (mysqli_error($connection));
-            die();
-        } elseif($result) {
-            echo 'Usuario actualizado correctamente';
-            die();
+        if (!$result) {
+            $_SESSION['errores']['general'] = "Fallo al actualizar el usuario: ".mysqli_error($connection);
         } else {
-            $_SESSION['errores']['general'] = 'Fallo al actualizar el usuario';
-        }
-
-        header('Location: index.php');       
+            echo 'Usuario actualizado correctamente';
+            $_SESSION['usuario']['nombre'] = $nombre;
+            $_SESSION['usuario']['apellidos'] = $apellidos;
+            $_SESSION['usuario']['email'] = $email;
+            $_SESSION['completed'] = 'Usuario actualizado correctamente.';
+        } 
+        
     } else {
         $_SESSION['errores'] = $errores;
-        header('Location: mis-datos.php');
     }
 
-
+    header("Location: mis-datos.php");
 
 }
-
-
-    

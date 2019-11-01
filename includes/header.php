@@ -31,7 +31,7 @@
 
                         while($categoria = mysqli_fetch_assoc($categorias)):  ?>
                         <li class="menu-item">
-                            <a class="menu-link" href="index.php">
+                            <a class="menu-link" href="categoria.php?id=<?= $categoria['id'] ?>">
                                 <?= $categoria['nombre'] ?>
                             </a>
                         </li>
