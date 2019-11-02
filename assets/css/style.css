@@ -143,11 +143,37 @@ h1:hover {
 }
 
 .principal h2 {
-  font-family: 'Fajala';
+  font-family: "Fajala";
   font-size: 2em;
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px #ccc;
   color: #444;
+  text-align: center;
+}
+
+.principal .entry-title {
+  line-height: 1.5;
+}
+
+.category {
+  font-family: 'Fajala';
+  color: #2979cd;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.category span {
+  color: #000;
+}
+
+.description-entry {
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.empty-entries {
+  margin-top: 2rem;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -161,10 +187,10 @@ h1:hover {
 
 .titulo-entrada {
   font-size: 1.5em;
-  font-family: 'Fajala';
+  font-family: "Fajala";
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px #ccc;
-  color: #2979CD;
+  color: #2979cd;
   margin-bottom: 5px;
 }
 
@@ -215,10 +241,6 @@ textarea {
 select {
   margin-left: 1rem;
   padding: 0.3em;
-}
-
-.user-entry {
-  margin-left: 1.9rem;
 }
 
 /* Barra lateral */

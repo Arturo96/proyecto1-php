@@ -12,7 +12,7 @@
                 while($lastEntry = mysqli_fetch_assoc($lastEntries)): ?>
 
                     <article class="entrada">
-                        <a href="">
+                        <a href="detalle-entrada.php?id=<?= $lastEntry['id'] ?>">
                             <h3 class="titulo-entrada"><?= $lastEntry['titulo'] ?></h3>
                             <span class="date"><?= $lastEntry['categoria'].' | '.$lastEntry['fecha'] ?></span>
                             <p class="desc-entrada">

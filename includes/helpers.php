@@ -68,20 +68,37 @@ function getEntries($connection, $limit = null) {
 
 }
 
-function getEntriesByCategory($connection, $limit = null) {
+function getEntryById($connection, $entry_id) {
     $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
-                JOIN categorias c ON e.categoria_id = c.id ORDER BY e.fecha DESC ".$limit.";";
-                
-    $lastEntries = mysqli_query($connection, $sql);
+                JOIN categorias c ON e.categoria_id = c.id
+            WHERE e.id = $entry_id";
+
+    $entry = mysqli_query($connection, $sql);
 
     $result = [];
 
-    if($lastEntries && mysqli_num_rows($lastEntries) >= 1) {
-        $result = $lastEntries;
+    if($entry && mysqli_num_rows($entry) == 1) {
+        $result = mysqli_fetch_assoc($entry);
+    }
+
+    return $result;
+}
+
+function getEntriesByCategory($connection, $id, $limit = null) {
+    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
+                JOIN categorias c ON e.categoria_id = c.id 
+            WHERE c.id = $id 
+            ORDER BY e.fecha DESC ".$limit.";";
+                
+    $entriesByCategory = mysqli_query($connection, $sql);
+
+    $result = [];
+
+    if($entriesByCategory && mysqli_num_rows($entriesByCategory) >= 1) {
+        $result = $entriesByCategory;
     }
     
     return $result;
-
 }
 
 

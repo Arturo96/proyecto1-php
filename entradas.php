@@ -9,7 +9,7 @@ require_once './includes/header.php';
             if(!empty($entries)):
                 while($entry = mysqli_fetch_assoc($entries)): ?>
                     <article class="entrada">
-                        <a href="">
+                    <a href="detalle-entrada.php?id=<?= $entry['id'] ?>">
                             <h3 class="titulo-entrada"><?= $entry['titulo'] ?></h3>
                             <span class="date"><?= $entry['categoria'].' | '.$entry['fecha'] ?></span>
                             <p class="desc-entrada">

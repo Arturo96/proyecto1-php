@@ -8,24 +8,25 @@ if(empty($categoria)) header('Location: index.php');
 <h2>Entradas de <?= $categoria['nombre'] ?></h2>
 
 <?php 
-            $entriesByCategory = getEntries($connection);
-            if(!empty($entries)):
-                while($entry = mysqli_fetch_assoc($entries)): ?>
+            $entriesByCategory = getEntriesByCategory($connection, (int) $categoria['id']);
+            if(!empty($entriesByCategory)):
+                while($entryByCategory = mysqli_fetch_assoc($entriesByCategory)): ?>
                     <article class="entrada">
-                        <a href="">
-                            <h3 class="titulo-entrada"><?= $entry['titulo'] ?></h3>
-                            <span class="date"><?= $entry['categoria'].' | '.$entry['fecha'] ?></span>
+                        <a href="detalle-entrada.php?id=<?= $entryByCategory['id'] ?>">
+                            <h3 class="titulo-entrada"><?= $entryByCategory['titulo'] ?></h3>
+                            <span class="date"><?= $entryByCategory['categoria'].' | '.$entryByCategory['fecha'] ?></span>
                             <p class="desc-entrada">
                                 <?php 
-                                    echo substr($entry['descripcion'], 0, 300);
-                                    if(strlen($entry['descripcion']) > 100) echo '...';
+                                    echo substr($entryByCategory['descripcion'], 0, 300);
+                                    if(strlen($entryByCategory['descripcion']) > 100) echo '...';
                                 ?>
                             </p>
                         </a>
                     </article>
-
         <?php   endwhile;
-            endif; ?>
+            else: 
+                echo "<p class='empty-entries'>No hay entradas correspondientes a esta categoría.</p>";
+             endif; ?>
 
 <?php
 require_once './includes/aside.php';
