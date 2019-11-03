@@ -124,12 +124,12 @@ select {
 a {
   &.delete-button,
   &.update-button {
-    display: inline-block;
-    width: 40%;
+     margin-left: 1rem;
   }
 
   &.update-button {
     background: #05477d;
+    margin-left: 0;
   }
 
   &.delete-button {
@@ -142,3 +142,25 @@ a {
 h3.date {
   margin-bottom: 0;
 }
+
+.container-entry {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-entry {
+  width: 25%;
+}
+
+.buttons-entry {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.description-entry {
+  margin-top: 1.5rem;
+}
+
+

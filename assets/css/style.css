@@ -244,12 +244,12 @@ select {
 }
 
 a.delete-button, a.update-button {
-  display: inline-block;
-  width: 40%;
+  margin-left: 1rem;
 }
 
 a.update-button {
   background: #05477d;
+  margin-left: 0;
 }
 
 a.delete-button {
@@ -258,6 +258,36 @@ a.delete-button {
 
 h3.date {
   margin-bottom: 0;
+}
+
+.container-entry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-entry {
+  width: 25%;
+}
+
+.buttons-entry {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.description-entry {
+  margin-top: 1.5rem;
 }
 
 /* Barra lateral */
