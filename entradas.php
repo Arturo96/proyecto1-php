@@ -11,7 +11,10 @@ require_once './includes/header.php';
                     <article class="entrada">
                     <a href="detalle-entrada.php?id=<?= $entry['id'] ?>">
                             <h3 class="titulo-entrada"><?= $entry['titulo'] ?></h3>
-                            <span class="date"><?= $entry['categoria'].' | '.$entry['fecha'] ?></span>
+                            <span class="date"><?= $entry['categoria'].' | '.$entry['fecha']. ' | ' ?></span>
+                            <?php if(isset($_SESSION['usuario'])): ?>
+                                <a href="editar-entrada.php?id=<?= $entry['id'] ?>">Editar</a>
+                            <?php endif; ?>    
                             <p class="desc-entrada">
                                 <?php 
                                     echo substr($entry['descripcion'], 0, 300);
