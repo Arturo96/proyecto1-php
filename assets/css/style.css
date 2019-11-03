@@ -156,7 +156,7 @@ h1:hover {
 }
 
 .category {
-  font-family: 'Fajala';
+  font-family: "Fajala";
   color: #2979cd;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
@@ -241,6 +241,23 @@ textarea {
 select {
   margin-left: 1rem;
   padding: 0.3em;
+}
+
+a.delete-button, a.update-button {
+  display: inline-block;
+  width: 40%;
+}
+
+a.update-button {
+  background: #05477d;
+}
+
+a.delete-button {
+  background: #f00;
+}
+
+h3.date {
+  margin-bottom: 0;
 }
 
 /* Barra lateral */

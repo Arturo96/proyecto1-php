@@ -14,7 +14,7 @@
                     <article class="entrada">
                         <a href="detalle-entrada.php?id=<?= $lastEntry['id'] ?>">
                             <h3 class="titulo-entrada"><?= $lastEntry['titulo'] ?></h3>
-                            <span class="date"><?= $lastEntry['categoria'].' | '.$lastEntry['fecha']. ' | ' ?></span>
+                            <span class="date"><?= $lastEntry['categoria'].' | '.$lastEntry['fecha']. ' | '.$lastEntry['usuario'].' | ' ?></span>
                             <?php if(isset($_SESSION['usuario'])): ?>
                                 <a href="editar-entrada.php?id=<?= $lastEntry['id'] ?>">Editar</a>
                             <?php endif; ?>                           

@@ -14,7 +14,7 @@ if(empty($categoria)) header('Location: index.php');
                     <article class="entrada">
                         <a href="detalle-entrada.php?id=<?= $entryByCategory['id'] ?>">
                             <h3 class="titulo-entrada"><?= $entryByCategory['titulo'] ?></h3>
-                            <span class="date"><?= $entryByCategory['categoria'].' | '.$entryByCategory['fecha']. ' | ' ?></span>
+                            <span class="date"><?= $entryByCategory['categoria'].' | '.$entryByCategory['fecha']. ' | '.$entryByCategory['usuario'].' | ' ?></span>
                             <?php if(isset($_SESSION['usuario'])): ?>
                                 <a href="editar-entrada.php?id=<?= $entryByCategory['id'] ?>">Editar</a>
                             <?php endif; ?>             

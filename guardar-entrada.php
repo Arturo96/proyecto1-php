@@ -42,6 +42,7 @@ if (isset($_POST)) {
         $errores['category_entry'] = 'La categoría ingresada no es válida';
     }
 
+
     $update = false;
 
     // Si los datos vienen de actualizar entrada
@@ -54,7 +55,7 @@ if (isset($_POST)) {
     // Si no hay errores, se inserta la entrada en la BD
 
     if (count($errores) == 0) {
-        if (update) {
+        if ($update) {
             $sql = "UPDATE entradas set
                         categoria_id = $category_entry,
                         titulo       = '$title_entry',
@@ -62,7 +63,7 @@ if (isset($_POST)) {
                     WHERE id = $id_entry;";
             $location = "editar-entrada.php?id=$id_entry";
             $query = mysqli_query($connection, $sql);
-            if(!query) {
+            if(!$query) {
                 echo mysqli_error($connection);
                 die();
             }

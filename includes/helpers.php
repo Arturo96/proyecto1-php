@@ -53,8 +53,9 @@ function getCategoryById($connection, $id) {
 
 
 function getEntries($connection, $limit = null) {
-    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
-                JOIN categorias c ON e.categoria_id = c.id ORDER BY e.fecha DESC ".$limit.";";
+    $sql = "SELECT e.*, c.nombre AS categoria, CONCAT(u.apellidos,' ', u.nombre) AS usuario FROM entradas e
+                JOIN categorias c ON e.categoria_id = c.id
+                JOIN usuarios   u ON e.usuario_id   = u.id ORDER BY e.fecha DESC ".$limit.";";
                 
     $lastEntries = mysqli_query($connection, $sql);
 
@@ -69,8 +70,9 @@ function getEntries($connection, $limit = null) {
 }
 
 function getEntryById($connection, $entry_id) {
-    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
+    $sql = "SELECT e.*, c.nombre AS categoria, CONCAT(u.apellidos,' ', u.nombre) AS usuario FROM entradas e
                 JOIN categorias c ON e.categoria_id = c.id
+                JOIN usuarios   u ON e.usuario_id   = u.id
             WHERE e.id = $entry_id";
 
     $entry = mysqli_query($connection, $sql);
@@ -85,8 +87,9 @@ function getEntryById($connection, $entry_id) {
 }
 
 function getEntriesByCategory($connection, $id, $limit = null) {
-    $sql = "SELECT e.*, c.nombre AS categoria FROM entradas e
+    $sql = "SELECT e.*, c.nombre AS categoria, CONCAT(u.apellidos,' ', u.nombre) AS usuario FROM entradas e
                 JOIN categorias c ON e.categoria_id = c.id 
+                JOIN usuarios   u ON e.usuario_id   = u.id
             WHERE c.id = $id 
             ORDER BY e.fecha DESC ".$limit.";";
                 
