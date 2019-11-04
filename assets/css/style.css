@@ -76,6 +76,12 @@ h1:hover {
   -webkit-box-shadow: 0 2px 2px #eee;
           box-shadow: 0 2px 2px #eee;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .menu-nav ul {
@@ -85,13 +91,11 @@ h1:hover {
   display: -ms-flexbox;
   display: flex;
   padding-left: 0;
+  width: 60%;
 }
 
 .menu-item {
   border-right: 1px solid #d6d6d6;
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
 }
 
 .menu-link {
@@ -116,6 +120,29 @@ h1:hover {
 .menu-link:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), to(#dad9d4));
   background: linear-gradient(#f2f2f2 0, #dad9d4);
+}
+
+.buscar {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buscar [class^="buscar"] {
+  margin-top: 0;
+}
+
+.buscar-submit {
+  margin-left: 1rem;
+}
+
+.buscar-input {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
 }
 
 /* CONTENIDO */

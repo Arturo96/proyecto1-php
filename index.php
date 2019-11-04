@@ -5,6 +5,10 @@
     
         <h2>Últimas entradas</h2>
 
+        <?php if (isset($_SESSION['completed']) && isset($_SESSION['usuario'])) : ?>
+            <div class="alerta alerta-exito"><?= $_SESSION['completed'] ?></div>
+        <?php endif; ?>
+
         <?php 
 
             $lastEntries = getEntries($connection, 'LIMIT 5');
@@ -35,9 +39,9 @@
         </div>
 
 
-    <?php require_once './includes/aside.php'; ?>
-
-
-
-<?php require_once './includes/footer.php'; ?>
+<?php 
+require_once './includes/aside.php'; 
+require_once './includes/footer.php'; 
+borrarErrores();
+?>
 

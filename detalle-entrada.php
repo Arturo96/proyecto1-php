@@ -22,7 +22,7 @@ if(empty($entry)) header('Location: index.php');
     <?php if(isset($_SESSION['usuario'])): ?>
         <div class="buttons-entry">
             <a href="editar-entrada.php?id=<?= $id_entry ?>" class="update-button">Editar</a>    
-            <a href="borrar-entrada.php?id=<?= $id_entry ?>" class="delete-button">Eliminar</a>
+            <a id="delete" href="borrar-entrada.php?id=<?= $id_entry ?>" class="delete-button">Eliminar</a>
         </div>
     <?php endif; ?> 
 </div>

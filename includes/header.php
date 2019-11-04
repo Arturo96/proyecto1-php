@@ -40,6 +40,10 @@
                 <li class="menu-item"><a class="menu-link" href="index.php">Sobre mí</a></li>
                 <li class="menu-item"><a class="menu-link" href="index.php">Contacto</a></li>
             </ul>
+            <form class="buscar" action="buscar.php" method="post">
+                <input name="content" class="buscar-input"  type="text"> 
+                <input name="busqueda" class="buscar-submit" type="submit" value="Buscar">
+            </form>
         </nav>
 
 

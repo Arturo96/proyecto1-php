@@ -104,6 +104,25 @@ function getEntriesByCategory($connection, $id, $limit = null) {
     return $result;
 }
 
+function getEntriesByContent($connection, $content) {
+    $sql = "SELECT e.*, c.nombre AS categoria, CONCAT(u.apellidos,' ', u.nombre) AS usuario FROM entradas e
+                JOIN categorias c ON e.categoria_id = c.id 
+                JOIN usuarios   u ON e.usuario_id   = u.id
+            WHERE  e.titulo LIKE '%$content%' 
+                OR e.descripcion LIKE '%$content%'
+            ORDER BY e.fecha DESC;";
+                
+    $entriesByContent = mysqli_query($connection, $sql);
+
+    $result = [];
+
+    if($entriesByContent && mysqli_num_rows($entriesByContent) >= 1) {
+        $result = $entriesByContent;
+    }
+    
+    return $result;
+}
+
 
 function getUsers($connection) {
     $sql = 'SELECT * FROM usuarios ORDER BY apellidos';
